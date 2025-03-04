@@ -25,7 +25,7 @@ const Form = () => {
   return (
     <div >
       <form className={styles.container_form}>
-        {!modal ? <h2>Crie sua Wallet:</h2> : <h2>Criando Wallet:</h2>}
+        {/* {!modal ? <h2>Crie sua Wallet:</h2> : <h2>Criando Wallet:</h2>} */}
         {modal &&
         <>
           <label>Nome da Wallet:
