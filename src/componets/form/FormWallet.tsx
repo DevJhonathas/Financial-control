@@ -10,6 +10,9 @@ const Form = () => {
   // const [text, setText] = useState<string>("");
   // const [editWallet, setEditWallet] = useState(false);
   const [modal, setModal] = useState(false);
+  const [walletName, setWalletName] = useState<string>("");
+  const [foundsValue, setFoundsValue] = useState<number | undefined>(undefined);
+  const [estimetedValue, setEstimetedValue] = useState<number | undefined>(undefined);
 
   //------Code to add Emotes and stylization in your wallet
   // const handleEditWaller = (e:React.FormEvent<HTMLButtonElement>) => {
@@ -22,14 +25,17 @@ const Form = () => {
     setModal((prev) => !prev);
   }
 
+  const submitedHandle = (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  }
   return (
     <div >
-      <form className={styles.container_form}>
+      <form className={styles.container_form} onSubmit={submitedHandle}>
         {/* {!modal ? <h2>Crie sua Wallet:</h2> : <h2>Criando Wallet:</h2>} */}
         {modal &&
         <>
           <label>Nome da Wallet:
-            <input type="text" />
+            <input type="text" placeholder="Wallet Name" value={walletName} onChange={(e) => setWalletName(e.target.value)}/>
           </label>
 
           {/*------Code to add Emotes and stylization in your wallet*/}
@@ -53,18 +59,18 @@ const Form = () => {
           {!editWallet ? <button onClick={handleEditWaller} className="btn btn_aproved">Editar Wallet</button> : <button onClick={handleEditWaller}className="btn btn_canceled">Cancelar Edição</button>} */}
 
           <label>Adicionar fundos
-            <input type="number" />
+            <input type="number" placeholder="Add Founds" value={foundsValue} onChange={(e) => setFoundsValue(Number(e.target.value))}/>
             <button className="btn btn_aproved">Adicionar</button>
           </label>
 
           <label>Valor estimado:
-            <input type="number" />
+            <input type="number" placeholder="Estimeted Value" value={estimetedValue} onChange={(e) => setEstimetedValue(Number(e.target.value))}/>
             <button className="btn btn_aproved">Adicionar</button>
           </label>
         </>
         }
       
-        {!modal ? <button onClick={handleModal} className="btn btn_aproved">Criar Walllet</button> : <button className="btn btn_canceled">Cancelar Walllet</button>}
+        {!modal ? <button onClick={handleModal} className="btn btn_aproved">Criar Walllet</button> : <button  onClick={handleModal} className="btn btn_canceled">Cancelar Walllet</button>}
 
       </form>  
     </div>

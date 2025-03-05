@@ -10,8 +10,8 @@ const PageNotFound = () => {
 
   return (
     <div>
-          <h1>Página não encontrada!</h1>
-          <p>Gentiliza volte para página <button onClick={goHome}>Dashboard</button></p>      
+        <h1>Página não encontrada!</h1>
+        <p>Gentiliza volte para página <button onClick={goHome}>Dashboard</button></p>      
     </div>
   )
 }

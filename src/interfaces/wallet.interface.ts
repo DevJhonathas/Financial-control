@@ -3,7 +3,7 @@ export interface Wallet {
      name: string;
      value: number;
      estimatedValue: number;
-     createdat: Date;
-     updatedAt: Date;
-     deleteAt: Date;
+     createdAt: Date;
+     updatedAt?: Date;
+     deleteAt?: Date;
 }

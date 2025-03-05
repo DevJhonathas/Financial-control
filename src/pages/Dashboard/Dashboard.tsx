@@ -1,54 +1,50 @@
 //Components
 import FormWallet from "../../componets/form/FormWallet"
 
+//CSS
+import styles from './dashboard.module.css'
 
-const Dashboard = () => {
+import Wallets from "../../componets/wallets/wallets"
+
+
+const walletData = {
+  id: 1,
+  name: "Carteira Principal",
+  value: 1500,
+  estimatedValue: 1500,
+  createdAt: new Date,
+};
+
+const Dashboard: React.FC = () => {
   return (
-    <main className="container_dashboard">
-      <div className="wallet_title_group">
-        <h1 className="wallet_title_group">My Wallet</h1>
-        <p className="wallet_subtitle_group">Keep track your financial plan</p>
+    <main className={styles.container_dashboard}>
+      <div className={styles.wallet_title_group}>
+        <h1 className={styles.wallet_title_group}>My Wallet</h1>
+        <p className={styles.wallet_subtitle_group}>Keep track your financial plan</p>
       </div> {/*container_dashboard*/}
 
-      <div className="container_presentation">
-        <div className="account_user">
-          <h1 className="user_name">🖐 Hi Johnny!</h1>
-          <p className="user_value">R$124,542</p>
+      <div className={styles.container_presentation}>
+        <div className={styles.account_user}>
+          <h1 className={styles.user_name}>🖐 Hi Johnny!</h1>
+          <p className={styles.user_value}>R$124,542</p>
         </div>
 
-        <div className="send_and_request_payment">
-            <div className="send_payment">
+        <div className={styles.send_and_request_payment}>
+            <div className={styles.send_payment}>
               {/* Ico */}
               <p>Send a payment</p>
             </div>
-            <div className="request_payment">
+            <div className={styles.request_payment}>
               {/* ico */}
               <p>Request a payment</p>
             </div>
         </div>
       </div> {/*container_presentation */}
 
-      <div className="container_wallet_grid">
-        <div className="wallet">
-          <h2 className="wallet_title">Emergency Fund</h2>
-          <p className="last_paid_date">Last paid on August 28, 2022</p>
-          <div className="porcent_wallet">
-            <p className="invested_to_date">R$300</p>
-            <p className="estimated_investment">R$1000</p>
-          </div>
-        </div>
-
-        <div className="wallet">
-          <h2 className="wallet_title">Travel Plan</h2>
-          <p className="last_paid_date">Last paid on August 28, 2022</p>
-          <div className="porcent_wallet">
-            <p className="invested_to_date">R$300</p>
-            <p className="estimated_investment">R$1000</p>
-          </div>
-        </div>
-
-      <FormWallet />
+      <div className={styles.container_wallet_grid}>
+        <Wallets wallet={walletData} />
       </div>{/*container_wallet_grid*/}
+      <FormWallet />
     </main>
   )
 }
